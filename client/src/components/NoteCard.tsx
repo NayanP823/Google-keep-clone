@@ -38,7 +38,11 @@ const NoteCard: React.FC<NoteProps> = ({ note, onUpdate, onDelete, onArchive, on
 
     return (
         <div
-            style={{ ...styles.card, backgroundColor: note.color }}
+            style={{
+                ...styles.card,
+                backgroundColor: note.color === '#ffffff' ? 'var(--bg-color)' : note.color,
+                color: note.color !== '#ffffff' ? '#202124' : 'inherit'
+            }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => { setIsHovered(false); setShowColorPicker(false); }}
             onClick={onClick}
@@ -50,7 +54,7 @@ const NoteCard: React.FC<NoteProps> = ({ note, onUpdate, onDelete, onArchive, on
                         style={{ ...styles.pinButton, opacity: isHovered || note.isPinned ? 1 : 0 }}
                         onClick={(e) => handleAction(e, () => onUpdate(note._id, { ...note, isPinned: !note.isPinned }))}
                     >
-                        <MdPushPin size={24} color={note.isPinned ? '#202124' : '#5f6368'} />
+                        <MdPushPin size={24} color={note.isPinned ? (note.color !== '#ffffff' ? '#202124' : 'var(--text-color)') : 'var(--icon-color)'} />
                     </button>
                 </div>
                 <div style={styles.content}>
@@ -126,7 +130,7 @@ const NoteCard: React.FC<NoteProps> = ({ note, onUpdate, onDelete, onArchive, on
 const styles = {
     card: {
         borderRadius: '8px',
-        border: '1px solid #e0e0e0',
+        border: '1px solid var(--border-color)',
         marginBottom: '16px',
         width: '100%',
         cursor: 'default',
@@ -179,7 +183,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#5f6368',
+        color: 'inherit',
         margin: '0 2px',
         outline: 'none',
     },
@@ -189,14 +193,14 @@ const styles = {
         cursor: 'pointer',
         padding: '8px',
         borderRadius: '50%',
-        color: '#5f6368',
+        color: 'var(--icon-color)',
         outline: 'none',
     },
     colorPicker: {
         position: 'absolute' as 'absolute',
         bottom: '100%',
         left: 0,
-        backgroundColor: 'white',
+        backgroundColor: 'var(--bg-color)',
         boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
         padding: '8px',
         borderRadius: '4px',
@@ -205,6 +209,7 @@ const styles = {
         flexWrap: 'wrap' as 'wrap',
         width: '140px',
         zIndex: 10,
+        border: '1px solid var(--border-color)',
     },
     colorCircle: {
         width: '24px',

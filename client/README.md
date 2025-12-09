@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+ Google Keep Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A robust and responsive web application built with **React**, **TypeScript**, and **Vite** that replicates the core functionality and design of [Google Keep](https://keep.google.com/). This project serves as a modern example of a note-taking application with create, read, update, and delete (CRUD) operations, featuring a dynamic masonry layout and dark mode support.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create Notes: Quickly add new notes with title and content.
+- Edit & Update: Seamlessly edit existing notes.
+- Delete Notes: Remove unwanted notes.
+- Masonry Layout: Dynamic, Pinterest-style grid layout using `react-masonry-css` for an optimal viewing experience.
+- Dark Mode: Fully supported dark theme that respects user preference or system settings.
+- Responsive Design: Optimized for desktop, tablet, and mobile devices.
 
-## React Compiler
+🛠️ Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Framework: [React 19](https://react.dev/)
+- Build Tool: [Vite](https://vitejs.dev/)
+- Language: [TypeScript](https://www.typescriptlang.org/)
+- Styling: CSS Variables & Custom CSS
+- Icons: [React Icons](https://react-icons.github.io/react-icons/)
+- Linting: ESLint
 
-## Expanding the ESLint configuration
+ 📦 Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Follow these steps to set up the project locally on your machine.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+ Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Ensure you have [Node.js](https://nodejs.org/) (version 16 or higher recommended) and npm installed.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+
+
+# Running the Application
+
+Start the development server:
+
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application will be available at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+
+# 📂 Project Structure
+
 ```
+client/
+├── src/
+│   ├── components/   # Reusable UI components (NoteCard, Header, etc.)
+│   ├── context/      # React Context for global state (Theme, etc.)
+│   ├── services/     # API services and mock data
+│   ├── App.tsx       # Main application component
+│   ├── main.tsx      # Entry point
+│   └── index.css     # Global styles and variables
+├── public/           # Static assets
+└── package.json      # Project dependencies and scripts
+```
+
+
+
+

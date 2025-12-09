@@ -82,14 +82,13 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, toggleView, isGridView, 
 };
 
 const styles = {
-    // ... existing styles ...
     header: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '8px',
-        borderBottom: '1px solid #e0e0e0',
-        backgroundColor: '#fff',
+        borderBottom: '1px solid var(--border-color)',
+        backgroundColor: 'var(--bg-color)',
         position: 'sticky' as 'sticky',
         top: 0,
         zIndex: 100,
@@ -106,7 +105,7 @@ const styles = {
     },
     title: {
         fontSize: '22px',
-        color: '#5f6368',
+        color: 'var(--text-color)',
         paddingLeft: '4px',
     },
     searchSection: {
@@ -116,7 +115,7 @@ const styles = {
     searchBar: {
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#f1f3f4',
+        backgroundColor: 'var(--sidebar-hover)',
         borderRadius: '8px',
         padding: '0px 10px',
         height: '48px',
@@ -130,6 +129,7 @@ const styles = {
         padding: '0 10px',
         fontSize: '16px',
         outline: 'none',
+        color: 'var(--text-color)',
     },
     rightSection: {
         display: 'flex',
@@ -146,24 +146,25 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#5f6368',
+        color: 'var(--icon-color)',
         outline: 'none',
     },
     dropdown: {
         position: 'absolute' as 'absolute',
         top: '100%',
         right: 0,
-        backgroundColor: '#fff',
-        boxShadow: '0 1px 2px 0 rgba(60,64,67,0.30), 0 2px 6px 2px rgba(60,64,67,0.15)',
+        backgroundColor: 'var(--bg-color)',
+        boxShadow: '0 1px 2px 0 rgba(0,0,0,0.30), 0 2px 6px 2px rgba(0,0,0,0.15)',
         borderRadius: '4px',
         padding: '6px 0',
         minWidth: '200px',
         zIndex: 1000,
+        border: '1px solid var(--border-color)',
     },
     dropdownItem: {
         padding: '8px 16px',
         fontSize: '14px',
-        color: '#3c4043',
+        color: 'var(--text-color)',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',

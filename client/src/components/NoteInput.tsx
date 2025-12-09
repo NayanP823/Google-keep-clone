@@ -50,7 +50,7 @@ const NoteInput: React.FC<NoteInputProps> = ({ onCreate }) => {
 
     return (
         <div style={styles.container}>
-            <div ref={containerRef} style={{ ...styles.inputBox, backgroundColor: color, boxShadow: isExpanded ? '0 1px 2px 0 rgba(60,64,67,0.30), 0 2px 6px 2px rgba(60,64,67,0.15)' : '0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15)' }}>
+            <div ref={containerRef} style={{ ...styles.inputBox, backgroundColor: color === '#ffffff' ? 'var(--input-bg)' : color, boxShadow: isExpanded ? '0 1px 2px 0 rgba(0,0,0,0.30), 0 2px 6px 2px rgba(0,0,0,0.15)' : '0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15)' }}>
                 {isExpanded && (
                     <div style={styles.titleContainer}>
                         <input
@@ -130,7 +130,7 @@ const styles = {
         padding: '0 16px',
     },
     inputBox: {
-        backgroundColor: '#fff',
+        backgroundColor: 'var(--input-bg)',
         borderRadius: '8px',
         width: '100%',
         maxWidth: '700px',
@@ -138,6 +138,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'column' as 'column',
         position: 'relative' as 'relative',
+        border: '1px solid var(--border-color)',
     },
     titleContainer: {
         display: 'flex',
@@ -152,6 +153,7 @@ const styles = {
         fontWeight: 500,
         backgroundColor: 'transparent',
         padding: '4px 0',
+        color: 'var(--text-color)',
     },
     inputContent: {
         width: '100%',
@@ -162,6 +164,7 @@ const styles = {
         padding: '12px 48px 12px 16px',
         resize: 'none' as 'none',
         fontFamily: 'Roboto, Arial, sans-serif',
+        color: 'var(--text-color)',
     },
     footer: {
         display: 'flex',
@@ -179,7 +182,7 @@ const styles = {
         cursor: 'pointer',
         padding: '8px',
         borderRadius: '50%',
-        color: '#5f6368',
+        color: 'var(--icon-color)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -192,7 +195,7 @@ const styles = {
         cursor: 'pointer',
         padding: '8px 24px',
         borderRadius: '4px',
-        color: '#202124',
+        color: 'var(--text-color)',
         fontWeight: 500,
         fontSize: '14px',
     },
@@ -208,7 +211,7 @@ const styles = {
         position: 'absolute' as 'absolute',
         bottom: '100%',
         left: 0,
-        backgroundColor: 'white',
+        backgroundColor: 'var(--bg-color)',
         boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
         padding: '8px',
         borderRadius: '4px',
@@ -217,6 +220,7 @@ const styles = {
         flexWrap: 'wrap' as 'wrap',
         width: '140px',
         zIndex: 10,
+        border: '1px solid var(--border-color)',
     },
     colorCircle: {
         width: '24px',

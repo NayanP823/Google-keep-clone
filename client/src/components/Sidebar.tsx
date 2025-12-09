@@ -26,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, activeTab, setActiveTab }) =>
                     key={item.id}
                     style={{
                         ...styles.menuItem,
-                        backgroundColor: activeTab === item.id ? '#feefc3' : 'transparent',
+                        backgroundColor: activeTab === item.id ? 'var(--sidebar-active)' : 'transparent',
                         borderRadius: isOpen ? '0 25px 25px 0' : '50%',
                         width: isOpen ? '100%' : '48px',
                         justifyContent: isOpen ? 'flex-start' : 'center',
@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, activeTab, setActiveTab }) =>
                     }}
                     onClick={() => setActiveTab(item.id)}
                     onMouseEnter={(e) => {
-                        if (activeTab !== item.id) e.currentTarget.style.backgroundColor = '#f1f3f4';
+                        if (activeTab !== item.id) e.currentTarget.style.backgroundColor = 'var(--sidebar-hover)';
                     }}
                     onMouseLeave={(e) => {
                         if (activeTab !== item.id) e.currentTarget.style.backgroundColor = 'transparent';
@@ -67,7 +67,7 @@ const styles = {
         transition: 'background-color 0.2s, width 0.2s, border-radius 0.2s',
     },
     icon: {
-        color: '#202124',
+        color: 'var(--text-color)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -76,7 +76,7 @@ const styles = {
         marginLeft: '20px',
         fontSize: '14px',
         fontWeight: 500,
-        color: '#202124',
+        color: 'var(--text-color)',
         whiteSpace: 'nowrap' as 'nowrap',
     }
 };
